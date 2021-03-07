@@ -1,1 +1,1 @@
-# cs-fundamentals
+# Computer Science / Programming Fundamentals
