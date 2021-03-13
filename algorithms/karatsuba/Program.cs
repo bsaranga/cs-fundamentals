@@ -36,7 +36,6 @@ namespace karatsuba
 
             return BigMath.Add(BigMath.Add(PadZeros(Karatsuba(a, c), x.Length), PadZeros(BigMath.Add(Karatsuba(a,d), Karatsuba(b,c)), x.Length/2)), Karatsuba(b, d));
         }
-
         static void BigMathAddTest(int iterations)
         {
             int iter = iterations;
