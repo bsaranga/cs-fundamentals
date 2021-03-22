@@ -1,45 +1,45 @@
-const myChart = document.getElementById('myChart')
-const myChartContext = myChart.getContext('2d')
+var canvas = document.getElementById('myChart')
+var context = canvas.getContext('2d')
 
-let data = [12,1,5,6,3,11,8,9]
-
-function drawBar(ctx, upperLeftCornerX, upperLeftCornerY, width, height, color) {
-    ctx.save()
-    ctx.fillStyle = color
-    ctx.fillRect(upperLeftCornerX, upperLeftCornerY, width, height)
-    ctx.restore()
+function draw(xPos, yPos, w, h, col) {
+    context.fillStyle = col ? col : 'rgb(128, 128, 128)'
+    context.fillRect(xPos, canvas.clientHeight - yPos - h, w, h)
 }
 
-let barChart = function(options) {
-
-    this.options = options
-    this.canvas = options.canvas
-    this.ctx = this.canvas.getContext('2d')
-    this.colors = options.colors
-    let max = Math.max(...options.data)
-
-    this.draw = function() {
-        let numBars = this.options.data.length
-        let barSize = this.canvas.width / numBars
-
-        this.options.data.forEach((d, barIndex) => {
-            let barHeight = Math.round(this.options.height * d/max)
-            drawBar(
-                this.ctx,
-                barIndex * barSize,
-                this.canvas.height - barHeight,
-                barSize,
-                barHeight,
-                this.colors[barIndex%this.colors.length]
-            )
-        })
-    }
+function drawBarChart(arr, gap, w, ptrsObj) {
+    let i = 0
+    let max = Math.max(...arr)
+    arr.forEach((e, i) => {
+        let h = e/max*canvas.clientHeight
+        if(i == ptrsObj.i){
+            draw(i * (gap + w), 0, w, h, "blue")
+        }else if (i == ptrsObj.k){
+            draw(i * (gap + w), 0, w, h, "rgb(200, 200, 200)")
+        }else if (i == ptrsObj.kp){
+            draw(i * (gap + w), 0, w, h, "green")
+        }else{
+            draw(i * (gap + w), 0, w, h)
+        }
+        i++
+    });
 }
 
-var myBarChart = new barChart({
-    canvas: myChart,
-    data: data,
-    colors: ["#a55ca5","#67b6c7", "#bccd7a","#eb9743"]
-})
+function sortAnimation(delay){
+    let iter = 0
 
-myBarChart.draw()
+    setInterval(() => {
+        if(iter < snaps.length){
+            context.clearRect(0,0,canvas.clientWidth, canvas.clientHeight)
+            drawBarChart(snaps[iter], barGap, barWidth, ptrs[iter])
+            iter++
+        }
+    }, delay*1000);
+}
+
+
+let barWidth = 10
+let barGap = 1
+let snaps = sortData.snaps
+let ptrs = sortData.pointers
+
+sortAnimation(0.1)
