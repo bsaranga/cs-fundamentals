@@ -6,7 +6,7 @@ function randomArray(length, min, max) {
     return array
 }
 
-let arr = randomArray(91, 1, 20)
+let arr = randomArray(54, 1, 100)
 
 let data = {
     snaps: [],

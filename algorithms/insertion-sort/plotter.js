@@ -36,10 +36,9 @@ function sortAnimation(delay){
     }, delay*1000);
 }
 
-
 let barWidth = 10
 let barGap = 1
 let snaps = sortData.snaps
 let ptrs = sortData.pointers
 
-sortAnimation(0.1)
+sortAnimation(0.05)
