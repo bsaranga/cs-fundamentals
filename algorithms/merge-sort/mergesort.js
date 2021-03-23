@@ -14,22 +14,20 @@ function merge(lsa, rsa){
         }
     }
 
-    if(i < lsa.length){
+    if(i < lsa.length)
         lsa.slice(i, lsa.length).forEach(e => mrg.push(e))
-    }
 
-    if(j < rsa.length){
+    if(j < rsa.length)
         rsa.slice(j, rsa.length).forEach(e => mrg.push(e))
-    }
     
     return mrg
 }
 
 function mergeSort(arr){
 
-    if(arr.length <= 1){
+    if(arr.length <= 1)
         return arr
-    }
+
     var mid = Math.floor(arr.length / 2)
     return merge(mergeSort(arr.slice(0, mid)), mergeSort(arr.slice(mid, arr.length)))    
 }
