@@ -26,17 +26,12 @@ function merge(lsa, rsa){
 }
 
 function mergeSort(arr){
-    
+
     if(arr.length <= 1){
         return arr
     }
-
     var mid = Math.floor(arr.length / 2)
-    var lArr = mergeSort(arr.slice(0, mid))
-    var rArr = mergeSort(arr.slice(mid, arr.length))
-
-    return merge(lArr, rArr)
-    
+    return merge(mergeSort(arr.slice(0, mid)), mergeSort(arr.slice(mid, arr.length)))    
 }
 
 console.log(mergeSort([6,3,1,2,8,7,9,4,5]))
