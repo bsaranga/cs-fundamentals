@@ -16,9 +16,12 @@ int main() {
 
     c = a + b;
 
+    int max = __INT32_MAX__;
+
     printf("a + b = %d\n", c);
     printf("Outer var = %d\n", outerVar);
 
     printf("Factorial(5) = %d\n", factorial(5));
+    printf("Int MAX = %d", max);
     return 0;
 };
