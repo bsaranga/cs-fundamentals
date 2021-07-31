@@ -11,6 +11,8 @@ int main() {
     *p = 456; // dereference and assignment of new value
     printf("%d\n", x); // new value of x
 
+    // this is my comment
+
     float pi = 3.14159;
     float e = 2.178124;
 
@@ -24,6 +26,7 @@ int main() {
 
     printf("%f\n", pi);
     printf("%f\n", e);
+    printf("jkdhfksjdf");
 
     return 0;
 }
